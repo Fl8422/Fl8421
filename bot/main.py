@@ -6,7 +6,7 @@ import random
 import json
 
 # Вставьте ваш токен бота здесь
-BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE'  # Замените на ваш токен
+BOT_TOKEN = '7906189984:AAHf55zHiFACMsRx2DdsrTv-Fjk-vRBnJUE'  # Замените на ваш токен
 bot = telebot.TeleBot(BOT_TOKEN)
 
 ADMIN_TELEGRAM_ID = 6400017164  # Замените на ваш Telegram ID
