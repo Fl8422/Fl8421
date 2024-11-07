@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Кликер Шахтёра</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключение Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Подключение иконок Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Кликер Шахтёра</h1>
+        <div id="lock-container">
+            <img src="lock.png" alt="Замок" id="lock-image">
+            <p>Разблокируйте игру за <span id="unlock-price">65,000</span> монет</p>
+            <button id="unlock-button"><i class="fas fa-lock-open"></i> Разблокировать</button>
+        </div>
+        <div id="game-container" style="display: none;">
+            <div class="stats">
+                <div class="stat">
+                    <i class="fas fa-coins"></i>
+                    <span>Монеты: <span id="coins">0</span></span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-clock"></i>
+                    <span>Пассивный доход: <span id="passive-income">1</span> монета/100 секунд</span>
+                </div>
+            </div>
+            <button id="click-button"><i class="fas fa-hammer"></i> Кликни меня!</button>
+            <div class="upgrades">
+                <h2>Улучшения</h2>
+                <button class="upgrade-button" id="upgrade-passive"><i class="fas fa-arrow-up"></i> Улучшить пассивный доход - 7,500 монет</button>
+            </div>
+            <div class="footer">
+                <a href="https://fl8422.github.io/Fl8421.github.io/" target="_blank"><i class="fas fa-external-link-alt"></i> Перейти на сайт</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
