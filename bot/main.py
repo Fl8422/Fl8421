@@ -6,7 +6,7 @@ import threading
 import random
 
 # Вставьте ваш токен бота здесь
-BOT_TOKEN = '7906189984:AAEsYOSB9WAG-D-ikS2-2LWunURH3Enevco'  # ← Замените на ваш новый токен бота после изменения
+BOT_TOKEN = 'ваш токен'  # ← Замените на ваш новый токен бота после изменения
 bot = telebot.TeleBot(BOT_TOKEN)
 
 ADMIN_TELEGRAM_ID = 6400017164
