@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Шахтёр - Веб Приложение</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            background-color: #333;
+            padding: 10px;
+            justify-content: center;
+        }
+        .navbar button {
+            background-color: #444;
+            border: none;
+            color: white;
+            padding: 14px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .navbar button:hover {
+            background-color: #555;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        .active-tab {
+            display: block;
+        }
+        .gamepass, .clicker, .miner {
+            margin-bottom: 20px;
+        }
+        .gamepass button, .miner button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .gamepass button.buy-button {
+            background-color: orange;
+        }
+        .gamepass button.buy-button.purchased {
+            background-color: green;
+            cursor: default;
+        }
+        .miner-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .miner-list li {
+            margin-bottom: 10px;
+        }
+        /* Добавьте дополнительные стили для красоты */
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <button onclick="showTab('gamepasses')">Геймпассы</button>
+        <button onclick="showTab('clicker')">Кликер</button>
+        <button onclick="showTab('miners')">Майнеры</button>
+    </div>
+
+    <div id="gamepasses" class="tab-content active-tab">
+        <h2>Геймпассы</h2>
+        <div class="gamepass">
+            <h3>Удвоенная удача</h3>
+            <p>Двойная удача на добытые руды.</p>
+            <button class="buy-button" onclick="purchaseGamepass('double_luck', this)">Купить за 500,000 монет</button>
+        </div>
+        <div class="gamepass">
+            <h3>Ультра удача</h3>
+            <p>Удача увеличена в 5 раз на руды.</p>
+            <button class="buy-button" onclick="purchaseGamepass('ultra_luck', this)">Купить за 900,000 монет</button>
+        </div>
+        <div class="gamepass">
+            <h3>Двойная руда</h3>
+            <p>Двойная руда выпадает при добыче руды.</p>
+            <button class="buy-button" onclick="purchaseGamepass('double_ore', this)">Купить за 700,000 монет</button>
+        </div>
+        <div class="gamepass">
+            <h3>Моментальная переплавка</h3>
+            <p>Моментальная переплавка без ожидания 3 секунд.</p>
+            <button class="buy-button" onclick="purchaseGamepass('instant_smelting', this)">Купить за 500,000 монет</button>
+        </div>
+    </div>
+
+    <div id="clicker" class="tab-content">
+        <h2>Кликер</h2>
+        <button onclick="clickerClick()">Нажми меня!</button>
+        <p>Баланс: <span id="clicker-balance">0</span> монет</p>
+    </div>
+
+    <div id="miners" class="tab-content">
+        <h2>Майнеры</h2>
+        <ul class="miner-list">
+            <li>
+                <h3>Марсианский Нож</h3>
+                <p>Добавляет 300 монет каждые 10 часов.</p>
+                <button onclick="purchaseMiner('Марсианский Нож')">Купить за 7,500 монет</button>
+            </li>
+            <li>
+                <h3>Красный Клинок</h3>
+                <p>Добавляет 600 монет каждые 10 часов.</p>
+                <button onclick="purchaseMiner('Красный Клинок')">Купить за 14,000 монет</button>
+            </li>
+            <li>
+                <h3>Фобийский Дробитель</h3>
+                <p>Добавляет 900 монет каждые 10 часов.</p>
+                <button onclick="purchaseMiner('Фобийский Дробитель')">Купить за 21,000 монет</button>
+            </li>
+            <li>
+                <h3>Валькирия Боевая</h3>
+                <p>Добавляет 1,200 монет каждые 10 часов.</p>
+                <button onclick="purchaseMiner('Валькирия Боевая')">Купить за 28,000 монет</button>
+            </li>
+            <li>
+                <h3>Космический Извилин</h3>
+                <p>Добавляет 1,500 монет каждые 10 часов.</p>
+                <button onclick="purchaseMiner('Космический Извилин')">Купить за 35,000 монет</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Функция для переключения вкладок
+        function showTab(tabName) {
+            const tabs = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active-tab');
+            }
+            document.getElementById(tabName).classList.add('active-tab');
+        }
+
+        // Функция покупки геймпасса
+        function purchaseGamepass(gamepassKey, button) {
+            // Отправка данных в бота через Web App
+            Telegram.WebApp.sendData(JSON.stringify({
+                action: 'purchase_gamepass',
+                gamepass_key: gamepassKey
+            }));
+            // Отключение кнопки после покупки (может быть обновлено сервером)
+            button.classList.add('purchased');
+            button.textContent = 'Куплено';
+            button.disabled = true;
+        }
+
+        // Кликер
+        let clickerBalance = 0;
+        function clickerClick() {
+            clickerBalance += 1;
+            document.getElementById('clicker-balance').textContent = clickerBalance;
+            // Отправка клика в бота через Web App
+            Telegram.WebApp.sendData(JSON.stringify({
+                action: 'clicker_click'
+            }));
+        }
+
+        // Функция покупки майнера
+        function purchaseMiner(minerName) {
+            Telegram.WebApp.sendData(JSON.stringify({
+                action: 'purchase_miner',
+                miner_key: minerName
+            }));
+        }
+
+        // Инициализация Telegram Web App
+        Telegram.WebApp.ready();
+    </script>
+</body>
+</html>
