@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини-игра "Кликер"</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Мини-игра "Кликер"</h1>
+        <div class="lock" id="lock">
+            <img src="https://via.placeholder.com/100?text=🔒" alt="Lock" class="lock-icon">
+            <p>Разблокировать игру за <span class="price">65,000 монет</span></p>
+            <button id="unlock-button" class="btn unlock-btn">Купить</button>
+        </div>
+        <div class="game" id="game" style="display: none;">
+            <div class="coin-display">
+                <img src="https://via.placeholder.com/50?text=💰" alt="Coin" class="coin-icon">
+                <span id="coin-count">0</span>
+            </div>
+            <button id="click-button" class="btn click-btn">Клик</button>
+            <div class="upgrades">
+                <h2>Улучшения пассивного дохода</h2>
+                <button class="btn upgrade-btn" id="upgrade-passive">+1 монета раз в 100 секунд<br><span class="upgrade-price">7,500 монет</span></button>
+            </div>
+            <div class="gamepasses">
+                <h2>Геймпассы</h2>
+                <div class="gamepass-item">
+                    <img src="https://via.placeholder.com/50?text=✨" alt="Double Luck" class="gamepass-icon">
+                    <span>Удвоение удачи</span>
+                    <button class="btn gamepass-button" data-key="double_luck">750,000 монет</button>
+                </div>
+                <div class="gamepass-item">
+                    <img src="https://via.placeholder.com/50?text=🔥" alt="Ultra Luck" class="gamepass-icon">
+                    <span>Ультра удача</span>
+                    <button class="btn gamepass-button" data-key="ultra_luck">2,500,000 монет</button>
+                </div>
+                <div class="gamepass-item">
+                    <img src="https://via.placeholder.com/50?text=🔗" alt="Double Ore" class="gamepass-icon">
+                    <span>Двойная руда</span>
+                    <button class="btn gamepass-button" data-key="double_ore">1,000,000 монет</button>
+                </div>
+                <div class="gamepass-item">
+                    <img src="https://via.placeholder.com/50?text=⚡" alt="Instant Smelting" class="gamepass-icon">
+                    <span>Моментальная переплавка</span>
+                    <button class="btn gamepass-button" data-key="instant_smelting">1,500,000 монет</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
