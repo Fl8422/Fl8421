@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Шахтёр - Веб Приложение</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            background-color: #1f1f1f;
+            padding: 15px;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar button {
+            background-color: #333333;
+            border: none;
+            color: #ffffff;
+            padding: 14px 25px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .navbar button:hover {
+            background-color: #555555;
+            transform: scale(1.05);
+        }
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.5s;
+        }
+        .active-tab {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+        .gamepass, .miner {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+        }
+        .gamepass h3, .miner h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .gamepass p, .miner p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+        }
+        .buy-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+            color: #ffffff;
+        }
+        .buy-button.orange {
+            background-color: #FF8C00;
+        }
+        .buy-button.green {
+            background-color: #32CD32;
+            cursor: default;
+        }
+        .buy-button:hover:not(.green) {
+            transform: scale(1.05);
+        }
+        .clicker-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .clicker-button {
+            background-color: #FF4500;
+            border: none;
+            color: #ffffff;
+            padding: 20px 40px;
+            font-size: 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(255, 69, 0, 0.2);
+        }
+        .clicker-button:hover {
+            background-color: #FF6347;
+            transform: scale(1.05);
+        }
+        .clicker-balance {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #FFD700;
+        }
+        .miner-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .miner-list li {
+            margin-bottom: 20px;
+        }
+        .miner-item {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+        }
+        .miner-item h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .miner-item p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar button {
+                padding: 10px 15px;
+                font-size: 14px;
+                margin: 0 5px;
+            }
+            .gamepass, .miner, .miner-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .buy-button {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <button onclick="showTab('gamepasses')">Геймпассы</button>
+        <button onclick="showTab('clicker')">Кликер</button>
+        <button onclick="showTab('miners')">Майнеры</button>
+    </div>
+
+    <div id="gamepasses" class="tab-content active-tab">
+        <h2>Геймпассы</h2>
+        <div class="gamepass">
+            <div>
+                <h3>Удвоенная удача</h3>
+                <p>Двойная удача на добытые руды.</p>
+            </div>
+            <button class="buy-button orange" onclick="purchaseGamepass('double_luck', this)">Купить за 500,000 монет</button>
+        </div>
+        <div class="gamepass">
+            <div>
+                <h3>Ультра удача</h3>
+                <p>Удача увеличена в 5 раз на руды.</p>
+            </div>
+            <button class="buy-button orange" onclick="purchaseGamepass('ultra_luck', this)">Купить за 900,000 монет</button>
+        </div>
+        <div class="gamepass">
+            <div>
+                <h3>Двойная руда</h3>
+                <p>Двойная руда выпадает при добыче руды.</p>
+            </div>
+            <button class="buy-button orange" onclick="purchaseGamepass('double_ore', this)">Купить за 700,000 монет</button>
+        </div>
+        <div class="gamepass">
+            <div>
+                <h3>Моментальная переплавка</h3>
+                <p>Моментальная переплавка без ожидания 3 секунд.</p>
+            </div>
+            <button class="buy-button orange" onclick="purchaseGamepass('instant_smelting', this)">Купить за 500,000 монет</button>
+        </div>
+    </div>
+
+    <div id="clicker" class="tab-content">
+        <h2>Кликер</h2>
+        <div class="clicker-container">
+            <button class="clicker-button" onclick="clickerClick()">Нажми меня!</button>
+            <div class="clicker-balance">Баланс: <span id="clicker-balance">0</span> монет</div>
+        </div>
+    </div>
+
+    <div id="miners" class="tab-content">
+        <h2>Майнеры</h2>
+        <ul class="miner-list">
+            <li>
+                <div class="miner-item">
+                    <div>
+                        <h3>Марсианский Нож</h3>
+                        <p>Добавляет 300 монет каждые 10 часов.</p>
+                    </div>
+                    <button class="buy-button orange" onclick="purchaseMiner('Марсианский Нож')">Купить за 7,500 монет</button>
+                </div>
+            </li>
+            <li>
+                <div class="miner-item">
+                    <div>
+                        <h3>Красный Клинок</h3>
+                        <p>Добавляет 600 монет каждые 10 часов.</p>
+                    </div>
+                    <button class="buy-button orange" onclick="purchaseMiner('Красный Клинок')">Купить за 14,000 монет</button>
+                </div>
+            </li>
+            <li>
+                <div class="miner-item">
+                    <div>
+                        <h3>Фобийский Дробитель</h3>
+                        <p>Добавляет 900 монет каждые 10 часов.</p>
+                    </div>
+                    <button class="buy-button orange" onclick="purchaseMiner('Фобийский Дробитель')">Купить за 21,000 монет</button>
+                </div>
+            </li>
+            <li>
+                <div class="miner-item">
+                    <div>
+                        <h3>Валькирия Боевая</h3>
+                        <p>Добавляет 1,200 монет каждые 10 часов.</p>
+                    </div>
+                    <button class="buy-button orange" onclick="purchaseMiner('Валькирия Боевая')">Купить за 28,000 монет</button>
+                </div>
+            </li>
+            <li>
+                <div class="miner-item">
+                    <div>
+                        <h3>Космический Извилин</h3>
+                        <p>Добавляет 1,500 монет каждые 10 часов.</p>
+                    </div>
+                    <button class="buy-button orange" onclick="purchaseMiner('Космический Извилин')">Купить за 35,000 монет</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Функция для переключения вкладок
+        function showTab(tabName) {
+            const tabs = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active-tab');
+            }
+            document.getElementById(tabName).classList.add('active-tab');
+        }
+
+        // Функция покупки геймпасса
+        function purchaseGamepass(gamepassKey, button) {
+            // Отправка данных в бота через Web App
+            Telegram.WebApp.sendData(JSON.stringify({
+                action: 'purchase_gamepass',
+                gamepass_key: gamepassKey
+            }));
+            // Обновление интерфейса после покупки
+            button.classList.remove('orange');
+            button.classList.add('green');
+            button.textContent = 'Куплено';
+            button.disabled = true;
+        }
+
+        // Кликер
+        let clickerBalance = 0;
+        function clickerClick() {
+            clickerBalance += 1;
+            document.getElementById('clicker-balance').textContent = clickerBalance;
+            // Отправка клика в бота через Web App
+            Telegram.WebApp.sendData(JSON.stringify({
+                action: 'clicker_click'
+            }));
+        }
+
+        // Функция покупки майнера
+        function purchaseMiner(minerName) {
+            Telegram.WebApp.sendData(JSON.stringify({
+                action: 'purchase_miner',
+                miner_key: minerName
+            }));
+            // Обновление интерфейса после покупки
+            const buttons = document.querySelectorAll('.miner-item button');
+            buttons.forEach(button => {
+                if (button.textContent.includes('Купить за') && button.onclick.toString().includes(minerName)) {
+                    button.classList.remove('orange');
+                    button.classList.add('green');
+                    button.textContent = 'Куплено';
+                    button.disabled = true;
+                }
+            });
+        }
+
+        // Инициализация Telegram Web App
+        Telegram.WebApp.ready();
+    </script>
+</body>
+</html>
