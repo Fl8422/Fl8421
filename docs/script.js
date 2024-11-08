@@ -5,7 +5,7 @@ document.getElementById('search-button').addEventListener('click', function() {
         return;
     }
 
-    fetch(`https://your-pythonanywhere-username.pythonanywhere.com/search?q=${encodeURIComponent(query)}`)
+    fetch(`https://www.pythonanywhere.com/user/Fl8421/search?q=${encodeURIComponent(query)}`)
         .then(response => response.json())
         .then(data => {
             const resultsDiv = document.getElementById('results');
