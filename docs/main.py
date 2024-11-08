@@ -4,6 +4,13 @@ import time
 import threading
 import random
 import json
+import request
+
+def update_user_data(user_id, data):
+    url = "https://fl8422.github.io/Fl8421.github.io/"
+    payload = {'user_id': user_id, 'data': data}
+    response = requests.post(url, json=payload)
+    return response.json()
 
 # Вставьте ваш токен бота здесь
 BOT_TOKEN = ''  # Замените на ваш токен
