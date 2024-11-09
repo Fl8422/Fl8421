@@ -1,0 +1,51 @@
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin: 0;
+    height: 100vh;
+    justify-content: center;
+}
+h1 {
+    color: blue;
+    font-weight: bold;
+}
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+input[type="text"]:focus {
+    background-color: orange;
+}
+button {
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: none;
+    background-color: blue;
+    color: white;
+    transition: 0.3s;
+}
+button:hover {
+    background-color: orange;
+}
+.results {
+    border: 2px solid white;
+    width: 80%;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
