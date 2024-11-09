@@ -1,13 +1,3 @@
-Для реализации парсера с использованием Selenium и создания веб-интерфейса в стиле, который вы описали, потребуется несколько шагов. Я представлю вам пример кода на Python и HTML/CSS для этого:
-
-1. **Установка Selenium**: Убедитесь, что у вас установлена библиотека Selenium. Если нет, установите ее с помощью команды:
-   ```bash
-   pip install selenium
-   ```
-
-2. **HTML и CSS для интерфейса**:
-   Создайте файл `index.html` с интерфейсом поисковой панели:
-
    ```html
    <!DOCTYPE html>
    <html lang="ru">
@@ -82,15 +72,10 @@
    <script>
        function performSearch() {
            const query = document.getElementById('searchInput').value;
-           // Здесь будет ваш код на Python для выполнения поиска и отображения результатов
-           // Например, вы можете сделать AJAX запрос к серверу, который выполнит поиск
        }
    </script>
    </html>
    ```
-
-3. **Python скрипт для парсинга**:
-   Создайте Python скрипт, который будет использовать Selenium для выполнения поиска в Google и получения результатов:
 
    ```python
    from selenium import webdriver
@@ -110,7 +95,6 @@
            search_box.send_keys(Keys.RETURN)
            time.sleep(2)  # Дайте время для загрузки страницы
 
-           # Извлечение ссылок из результатов поиска
            results = driver.find_elements(By.CSS_SELECTOR, "div.yuRUbf a")
            links = [result.get_attribute('href') for result in results]
 
@@ -118,7 +102,6 @@
        finally:
            driver.quit()
 
-   # Пример использования функции
    if __name__ == "__main__":
        query = "купить ноутбук lenovo"
        links = google_search(query)
