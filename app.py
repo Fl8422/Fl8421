@@ -47,4 +47,4 @@ def search():
     return jsonify({'links': [link['url'] for link in parsed_links]})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5326)
