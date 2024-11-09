@@ -1,0 +1,161 @@
+/* Импортируем шрифт Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #000; /* Черный фон */
+    color: #fff; /* Белый цвет текста по умолчанию */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.85); /* Полупрозрачный черный фон для контейнера */
+    padding: 50px 40px;
+    border-radius: 20px; /* Более закругленные углы */
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.title {
+    font-size: 3em;
+    margin-bottom: 40px;
+    color: #1E90FF; /* Синий цвет */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+.search-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#query {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #1E90FF; /* Синий цвет рамки */
+    border-radius: 30px; /* Гладкие углы */
+    font-size: 1.1em;
+    background-color: #1a1a1a; /* Темный фон для инпута */
+    color: #fff; /* Белый текст */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#query::placeholder {
+    color: #ccc; /* Цвет плейсхолдера */
+}
+
+#query:focus {
+    border-color: orange; /* Оранжевая рамка при фокусе */
+    background-color: #333; /* Немного светлее фон при фокусе */
+    outline: none;
+}
+
+#search-button {
+    padding: 15px 40px;
+    background: #1E90FF; /* Синий цвет кнопки */
+    color: #fff;
+    border: none;
+    border-radius: 30px; /* Гладкие углы */
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-button i {
+    margin-right: 10px;
+}
+
+#search-button:hover {
+    background: #104E8B; /* Темно-синий при наведении */
+    transform: scale(1.05);
+}
+
+#search-button:active {
+    transform: scale(0.95);
+}
+
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #1E90FF; /* Синий цвет индикатора загрузки */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 30px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.results {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.result-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #444; /* Темная граница между результатами */
+    transition: background 0.3s ease;
+}
+
+.result-item:hover {
+    background: #1a1a1a; /* Темно-серый фон при наведении */
+}
+
+.result-item a {
+    text-decoration: none;
+    color: #1E90FF; /* Синий цвет ссылок */
+    font-weight: 500;
+}
+
+.result-item a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 2.5em;
+    }
+
+    #query, #search-button {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+
+    #search-button i {
+        margin-right: 5px;
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+        border-width: 5px;
+    }
+
+    .result-item {
+        padding: 10px 15px;
+    }
+}
