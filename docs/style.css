@@ -1,0 +1,111 @@
+/* Общие стили */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Заголовок */
+.header {
+    width: 100%;
+    background-color: #111;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(255, 165, 0, 0.2);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #FFA500; /* Оранжевый цвет для заголовка */
+}
+
+/* Контейнер поиска */
+.search-container {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-input {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    transition: background-color 0.3s, width 0.3s;
+    width: 300px;
+    background-color: #1E90FF; /* Синий по умолчанию */
+    color: #fff;
+    font-size: 1em;
+}
+
+#search-input:focus {
+    background-color: #FFA500; /* Оранжевый при фокусе */
+}
+
+#search-button {
+    padding: 15px 25px;
+    margin-left: 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: #FFA500;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-button:hover {
+    background-color: #FF8C00; /* Темно-оранжевый при наведении */
+}
+
+/* Контейнер ссылок */
+#links-container {
+    margin-top: 30px;
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Элемент ссылки */
+.link-item {
+    background-color: #1a1a1a;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 2px 4px rgba(255, 165, 0, 0.2);
+    transition: transform 0.2s;
+    word-wrap: break-word;
+}
+
+.link-item:hover {
+    transform: scale(1.02);
+    background-color: #333;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    #search-input {
+        width: 80%;
+    }
+
+    #search-button {
+        padding: 10px 15px;
+        margin-left: 10px;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+}
