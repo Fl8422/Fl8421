@@ -9,7 +9,7 @@ document.getElementById('search-button').addEventListener('click', function() {
     const container = document.getElementById('links-container');
     container.innerHTML = '<p>Загрузка...</p>';
 
-    fetch('/search', { // Убедитесь, что эндпоинт '/search' настроен правильно
+    fetch('http://localhost:5326/search', { // Убедитесь, что эндпоинт '/search' настроен правильно
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
