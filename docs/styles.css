@@ -1,0 +1,55 @@
+body {
+  background-color: #000; /* Черный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.parser-panel {
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #222;
+}
+
+.parser-panel h1 {
+  color: blue; /* Жирное синее слово "Parser Panel" */
+}
+
+#search-box {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: blue;
+  color: #fff;
+}
+
+#search-box:focus {
+  background-color: orange;
+  outline: none;
+}
+
+#search-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: blue;
+  color: #fff;
+  cursor: pointer;
+}
+
+#search-button:hover {
+  background-color: orange;
+}
+
+#results {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
