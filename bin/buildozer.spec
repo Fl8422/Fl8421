@@ -10,7 +10,7 @@ package.name = parser_panel
 package.domain = org.example
 
 # (str) Source code where the main.py is located
-source.dir = .
+source.dir = bin
 
 # (str) Main .py file
 source.main = main.py
@@ -22,7 +22,7 @@ source.include_exts = py, kv, png
 requirements = python3, kivy, requests, beautifulsoup4
 
 # (str) Icon of the application
-icon.filename = assets/icon.png
+icon.filename = assets/zoom.png
 
 # (list) Permissions
 android.permissions = INTERNET
