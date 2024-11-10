@@ -1,0 +1,50 @@
+<ParserPanel>:
+    search_box: search_box
+    results: results
+    orientation: 'vertical'
+    padding: 20
+    spacing: 20
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 1  # Черный фон
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "Parser Panel"
+        font_size: '32sp'
+        color: 0, 0, 1, 1  # Синий цвет
+        size_hint_y: None
+        height: self.texture_size[1]
+
+    TextInput:
+        id: search_box
+        hint_text: "Введите поисковый запрос"
+        size_hint_y: None
+        height: 50
+        background_color: 0, 0, 1, 1  # Синий фон
+        foreground_color: 1, 1, 1, 1  # Белый текст
+        font_size: 18
+        multiline: False
+
+    Button:
+        text: "Искать"
+        size_hint_y: None
+        height: 50
+        background_color: 0, 0, 1, 1  # Синий фон
+        on_press: root.search_google()
+
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+
+        Label:
+            id: results
+            text: ""
+            color: 1, 1, 1, 1  # Белый текст
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            halign: 'left'
+            valign: 'top'
