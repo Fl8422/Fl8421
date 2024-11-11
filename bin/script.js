@@ -1,6 +1,6 @@
 async function performSearch(query) {
     try {
-        const response = await fetch("http://localhost:5000/search", {
+        const response = await fetch("http://localhost:5421/search", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
