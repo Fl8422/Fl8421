@@ -1,0 +1,76 @@
+/* Общий стиль */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* Заголовок и переключатель вкладок */
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.panel-switch {
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.active {
+    color: #1E90FF;
+    font-weight: bold;
+}
+
+.title {
+    color: #1E90FF;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+/* Поисковая строка и кнопка */
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.search-bar:focus {
+    background-color: #FFA500;
+}
+
+.search-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.results {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #ccc;
+}
