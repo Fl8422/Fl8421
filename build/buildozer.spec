@@ -10,7 +10,7 @@ package.domain = com.example
 source.main = app.py
 
 # Иконка приложения
-icon.filename = res/icon.png
+icon.filename = res/free-icon-loupe-8668568.png
 
 # (str) Платформы, на которых вы хотите запустить ваше приложение
 # (android - для сборки APK файла)
