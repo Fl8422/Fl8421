@@ -2,7 +2,7 @@ async function performSearch() {
     const query = document.getElementById("query").value;
     document.getElementById("results").innerHTML = "Идет поиск...";
     try {
-        const response = await fetch(`https://<Ваш_сайт_на_PythonAnywhere>/search?q=${encodeURIComponent(query)}`);
+        const response = await fetch(`https://www.pythonanywhere.com/user/Fl8421/search?q=${encodeURIComponent(query)}`);
         const data = await response.json();
         displayResults(data.results);
     } catch (error) {
