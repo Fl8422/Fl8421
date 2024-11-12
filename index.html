@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO & OSINT Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span id="seo-panel" class="panel-switch active">SEO Panel</span>
+            <span id="osint-panel" class="panel-switch">OSINT Panel</span>
+        </div>
+        <h1 class="title">SEO Panel</h1>
+        
+        <!-- Поисковая строка и кнопка поиска -->
+        <input type="text" class="search-bar" placeholder="Введите запрос...">
+        <button class="search-button">Поиск</button>
+        
+        <!-- Окно для отображения результатов -->
+        <div class="results">
+            <p>Результаты поиска появятся здесь...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
