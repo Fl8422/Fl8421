@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Seo Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
+    <script>
+        function setSearchType(type) {
+            document.getElementById('search_type').value = type;
+            // Изменение цвета кнопок
+            const buttons = document.querySelectorAll('.search-option');
+            buttons.forEach(button => button.classList.remove('active'));
+            document.getElementById(type).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Seo Panel</h1>
+        <form method="POST" class="search-form">
+            <input type="text" name="query" class="search-input" placeholder="Введите запрос" onclick="this.style.backgroundColor='orange'" required>
+            <button type="submit" class="search-button">Поиск</button>
+            <!-- Скрытые поля для типа поиска и сайта -->
+            <input type="hidden" name="search_type" id="search_type" value="standard">
+            <input type="hidden" name="site" id="site" value="">
+        </form>
+        <div class="search-options">
+            <button id="standard" class="search-option active" onclick="setSearchType('standard')">Стандартный Поиск</button>
+            <button id="detailed" class="search-option" onclick="setSearchType('detailed')">Подробный Поиск</button>
+            <button id="standard_time" class="search-option" onclick="setSearchType('standard_time')">Стандартный Поиск по Времени</button>
+            <button id="detailed_time" class="search-option" onclick="setSearchType('detailed_time')">Подробный Поиск по Времени</button>
+            <button id="site" class="search-option" onclick="setSearchType('site')">Поиск по Сайту</button>
+            <button id="image" class="search-option" onclick="setSearchType('image')">Поиск по Изображениям</button>
+        </div>
+        <div class="results">
+            {% if results %}
+                {% for item in results %}
+                    <div class="result-item">
+                        <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                        <p>{{ item.snippet }}</p>
+                    </div>
+                {% endfor %}
+            {% elif query %}
+                <p>Результаты не найдены.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
