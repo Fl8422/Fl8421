@@ -22,8 +22,8 @@ document.getElementById('search-button').addEventListener('click', () => {
 // Выполнение поиска
 async function performSearch(query) {
     // Укажите ваш API-ключ Google и идентификатор поискового движка
-    const API_KEY = 'ВАШ_GOOGLE_API_KEY';
-    const CX = 'ВАШ_CUSTOM_SEARCH_ENGINE_ID';
+    const API_KEY = 'AIzaSyBmjRNwNBNY1A6g6Qfv9aUBV_rD1Zz03lw';
+    const CX = '1277afbc49d06402d';
 
     // URL для API-запроса
     const url = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(query)}&key=${API_KEY}&cx=${CX}`;
