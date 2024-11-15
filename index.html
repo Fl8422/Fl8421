@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок -->
+        <h1 class="title">SEO Panel</h1>
+
+        <!-- Поисковая строка и кнопка -->
+        <div class="search-bar">
+            <input type="text" id="search-input" class="search-input" placeholder="Введите ваш запрос">
+            <button id="search-button" class="search-button">Поиск</button>
+        </div>
+
+        <!-- Блок для отображения результатов -->
+        <div id="results-box" class="results-box">
+            <!-- Результаты будут добавляться здесь через JavaScript -->
+        </div>
+
+        <!-- Меню с поисковыми режимами -->
+        <div class="search-modes">
+            <button class="mode-button" onclick="setMode('standard')">Стандартный поиск</button>
+            <button class="mode-button" onclick="setMode('detailed')">Подробный поиск</button>
+            <button class="mode-button" onclick="setMode('time_standard')">Поиск по времени</button>
+            <button class="mode-button" onclick="setMode('time_detailed')">Подробный поиск по времени</button>
+            <button class="mode-button" onclick="setMode('site')">Поиск по сайту</button>
+            <button class="mode-button" onclick="setMode('images')">Поиск по изображениям</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
