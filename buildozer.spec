@@ -43,7 +43,7 @@ description = Приложение для выполнения SEO-запрос�
 entrypoint = main.py
 
 # Иконка приложения
-icon.filename = icon.png
+icon.filename = zoom-in.png
 
 # Сплэш-экран (опционально)
 presplash.filename = presplash.png
