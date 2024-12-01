@@ -1,0 +1,25 @@
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+class SearchApi {
+  static const String apiKey = 'ВАШ_API_KEY';
+  static const String searchEngineId = 'ВАШ_SEARCH_ENGINE_ID';
+
+  static Future<List<String>> search(String query, String type) async {
+    String url = 'https://www.googleapis.com/customsearch/v1?q=$query&key=$apiKey&cx=$searchEngineId';
+
+    if (type == 'time') {
+      url += '&sort=date';
+    } else if (type == 'site') {
+      url = 'https://www.googleapis.com/customsearch/v1?q=site:$query&key=$apiKey&cx=$searchEngineId';
+    }
+
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      return (data['items'] as List).map((item) => item['link'] as String).toList();
+    } else {
+      throw Exception('Ошибка API: ${response.statusCode}');
+    }
+  }
+}
