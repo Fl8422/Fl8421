@@ -1,2 +1,0 @@
-Flask==2.2.3
-google-api-python-client==2.74.0
