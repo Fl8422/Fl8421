@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parser Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Parser Panel</h1>
+
+        <div class="search-box">
+            <input type="text" id="searchQuery" placeholder="Введите запрос">
+            <button id="searchBtn">Поиск</button>
+        </div>
+
+        <div class="search-options">
+            <button class="search-type" onclick="toggleSearch('standard')">Стандартный поиск</button>
+            <div id="standard" class="search-details">
+                <input type="radio" name="searchType" value="standard"> Ссылки по запросу
+            </div>
+
+            <button class="search-type" onclick="toggleSearch('detailed')">Подробный поиск</button>
+            <div id="detailed" class="search-details">
+                <input type="radio" name="searchType" value="detailed"> Ссылки с извлеченным текстом
+            </div>
+
+            <button class="search-type" onclick="toggleSearch('time')">Поиск по времени</button>
+            <div id="time" class="search-details">
+                <input type="radio" name="searchType" value="time"> Ссылки за последнюю неделю
+            </div>
+
+            <button class="search-type" onclick="toggleSearch('site')">Поиск по сайту</button>
+            <div id="site" class="search-details">
+                <input type="text" id="siteQuery" placeholder="Введите сайт"> site:<span id="sitePlaceholder">название сайта</span>
+            </div>
+        </div>
+
+        <div class="search-results" id="searchResults">
+            <!-- Результаты будут выводиться здесь -->
+        </div>
+    </div>
+
+    <script>
+        function toggleSearch(type) {
+            const element = document.getElementById(type);
+            element.style.display = element.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', function () {
+            const query = document.getElementById('searchQuery').value;
+            const siteQuery = document.getElementById('siteQuery').value;
+
+            if (query) {
+                // Здесь будет код для отправки запроса через API Google Custom Search
+                console.log('Поиск по запросу:', query);
+            }
+        });
+    </script>
+</body>
+</html>
