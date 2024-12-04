@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parser Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Parser Panel</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Введите ваш запрос...">
+            <button id="search-btn">Поиск</button>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">Тип поиска</button>
+            <div class="dropdown-content">
+                <button class="search-option" data-type="standard">Стандартный поиск</button>
+                <button class="search-option" data-type="detailed">Подробный поиск</button>
+                <button class="search-option" data-type="time">Поиск по времени</button>
+                <button class="search-option" data-type="site">Поиск по сайту</button>
+            </div>
+        </div>
+        <div class="results-container">
+            <div id="loader" class="loader"></div>
+            <div id="results"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
