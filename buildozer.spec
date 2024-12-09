@@ -6,5 +6,6 @@ source.dir = .
 source.include_exts = py,png,kv
 requirements = kivy, requests, google-api-python-client
 icon.filename = zoom-in.png
+version = 1.0
 fullscreen = 1
 android.permissions = INTERNET
