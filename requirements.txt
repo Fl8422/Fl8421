@@ -1,3 +1,0 @@
-kivy
-google-api-python-client
-requests
