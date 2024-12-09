@@ -89,8 +89,8 @@ KV = """
 class ParserPanel(BoxLayout):
     def __init__(self, **kwargs):
         super(ParserPanel, self).__init__(**kwargs)
-        self.api_key = "YOUR_GOOGLE_API_KEY"
-        self.cse_id = "YOUR_CSE_ID"
+        self.api_key = "AIzaSyBmjRNwNBNY1A6g6Qfv9aUBV_rD1Zz03lw"
+        self.cse_id = "1277afbc49d06402d"
         self.current_search = "Стандартный поиск"
 
     def change_search_type(self, search_type):
